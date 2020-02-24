@@ -16,3 +16,12 @@ In the directory above zephyr call:
 ```
 west build --pristine -s bootloader/fsl -b nrf52840_pca10056 -- -DDTC_OVERLAY_FILE="../overlays/nrf52840_pca10056_si.overlay fsl.overlay"
 ```
+
+# Step 3 - make sure everything is ready for the tools
+
+In the bootloader directory:
+```
+pip3 install --user -r scripts/requirements.txt
+```
+
+# Step 4 - ...
