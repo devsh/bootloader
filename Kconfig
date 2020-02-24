@@ -1,0 +1,8 @@
+# Kconfig - Subsystem configuration options
+#
+# Copyright (c) 2019 Laczen
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+rsource "./zb8/Kconfig"
