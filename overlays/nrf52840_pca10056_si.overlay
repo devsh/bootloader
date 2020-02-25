@@ -48,11 +48,7 @@
 			label = "run-0";
 			reg = <0x0001E000 0x00061000>;
 		};
-		move0_partition: partition@1F000_0 {
-			label = "move-0";
-			reg = <0x0001F000 0x00061000>;
-		};
-		upgrade0_partition: partition@1F000_1 {
+		upgrade0_partition: partition@1F000 {
 			label = "upgrade-0";
 			reg = <0x0001F000 0x00061000>;
 		};
