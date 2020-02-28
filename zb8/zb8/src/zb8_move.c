@@ -100,6 +100,9 @@ int zb_img_swap(uint8_t sm_idx) {
 					/* Avoid booting this image */
 					return -EINVAL;
 				}
+				if (in_place) {
+					return 0;
+				}
 				LOG_INF("Restoring previous image...");
 			} else {
 				continue_swap = true;
@@ -281,7 +284,7 @@ int zb_img_swap(uint8_t sm_idx) {
 		case CMD2_FINALISE:
 			LOG_INF("Prepare image for booting");
 			(void)zb_get_img_info(&run_info, &run_slt);
-			if ((run_info.confirmed) || (in_place)) {
+			if ((run_info.confirmed) && (!in_place)) {
 				(void)zb_img_confirm(&run_slt);
 			}
 			cmd.cmd2 = CMD2_SWP_END;
