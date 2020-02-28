@@ -10,6 +10,8 @@ from cryptography.hazmat.primitives.hashes import SHA256
 
 from .general import KeyClass
 
+import os
+
 class ECUsageError(Exception):
     pass
 
@@ -87,7 +89,7 @@ class EC256P1(EC256P1Public):
                 encoding=serialization.Encoding.PEM,
                 format=serialization.PrivateFormat.PKCS8,
                 encryption_algorithm=enc)
-        with open(path, 'wb') as f:
+        with open(os.path.normpath(os.path.join(os.getcwd(), path)), 'wb') as f:
             f.write(pem)
         print("Done export")
 
