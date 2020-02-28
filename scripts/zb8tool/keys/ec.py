@@ -89,7 +89,9 @@ class EC256P1(EC256P1Public):
                 encoding=serialization.Encoding.PEM,
                 format=serialization.PrivateFormat.PKCS8,
                 encryption_algorithm=enc)
-        with open(os.path.normpath(os.path.join(os.getcwd(), path)), 'wb') as f:
+        path = os.path.normpath(os.path.join(os.getcwd(), path))
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, 'wb') as f:
             f.write(pem)
         print("Done export")
 
